@@ -1,7 +1,5 @@
 import sys
 import parser
-import PyRTF
-
 from subprocess import Popen, PIPE
 
 #http://stackoverflow.com/questions/5725278/python-help-using-pdfminer-as-a-library
@@ -45,11 +43,11 @@ def document_to_text(filename, file_path):
     elif filename[-4:] == ".pdf":
         return convert_pdf_to_txt(file_path)
     elif filename[-4:] == ".txt":
-	    f = open(file_path)
-	    return f.read()
+        f = open(file_path)
+        return f.read()
 
 def main(args):
-   parser.parse_document(document_to_text(args[1],args[2]))
+   print document_to_text(args[1],args[2])
 
 if __name__ == "__main__":
     main(sys.argv)
