@@ -14,10 +14,10 @@ class Label:
         self.labeled_text += '\n'
 
     def print_text(self):
-        print self.text
+        print repr(self.text)
 
     def print_labeled(self):
-        print self.labeled_text
+        print repr(self.labeled_text)
 
     def write_to_file(self):
         f = open('../samples/labeled.txt','w')

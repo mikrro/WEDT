@@ -10,18 +10,17 @@ def parse_document(document):
     paragraph_end = len(document) - 1
     state = 1
 
-    for i, ch in enumerate(document):
-
+    for i in range(len(document)):
+        ch = document[i]
         if ch == '\n':
             end = True
 
             while i+1 < (len(document) - 1) and document[i+1] == '\r':
                 i = i + 1
-
-            ch = document[i]
+                print 'Skiping ' + repr(document[i])
 
         if state == 1:
-            if ch == '\n' or ~ch.isspace():
+            if ~ch.isspace():
                 state = 2
                 paragraph_begin = i
             continue
@@ -48,6 +47,6 @@ def parse_document(document):
     if state == 2 or state == 3:
         l.paragraph(paragraph_begin, paragraph_end)
 
-    l.print_text()
-    l.print_labeled()
+    # l.print_text()
+    # l.print_labeled()
     l.write_to_file()
