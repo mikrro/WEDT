@@ -11,15 +11,17 @@ def parse_document(document):
     state = 1
 
     for i, ch in enumerate(document):
+
         if ch == '\n':
             end = True
 
-            while i+2 < len(document) and ch == '\r':
-                i += 1
-                ch = document[i]
+            while i+1 < (len(document) - 1) and document[i+1] == '\r':
+                i = i + 1
+
+            ch = document[i]
 
         if state == 1:
-            if not ch.isspace():
+            if ch == '\n' or ~ch.isspace():
                 state = 2
                 paragraph_begin = i
             continue
@@ -32,6 +34,7 @@ def parse_document(document):
             continue
 
         if state == 3:
+            print 'State ' + str(state) + ' end ' + str(end)
             if end:
                 state = 1
                 end = False

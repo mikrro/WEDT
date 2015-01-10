@@ -20,5 +20,9 @@ class Label:
         print self.labeled_text
 
     def write_to_file(self):
-        f = open('labeled','w')
+        f = open('../samples/labeled.txt','w')
         f.write(self.labeled_text)
+        f.close()
+        f = open('../samples/unlabeled.txt','w')
+        f.write(self.text)
+        f.close()
