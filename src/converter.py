@@ -5,6 +5,9 @@ from pdfminer.layout import LAParams
 from pdfminer.pdfpage import PDFPage
 from cStringIO import StringIO
 from bs4 import BeautifulSoup
+from pyth.plugins.rtf15.reader import Rtf15Reader
+from pyth.plugins.plaintext.writer import PlaintextWriter
+
 
 
 def convert_pdf_to_txt(path):
@@ -27,6 +30,7 @@ def convert_pdf_to_txt(path):
     retstr.close()
     return str
 
+
 def document_to_text( file_path):
     if file_path[-4:] == ".doc":
         cmd = ['antiword', file_path]
@@ -46,6 +50,9 @@ def document_to_text( file_path):
     elif file_path[-5:] == ".html":
         f = open(file_path).read()
         return BeautifulSoup(f).get_text()
+    elif file_path[-4:] == ".rtf":
+        doc = Rtf15Reader.read(open(file_path))
+        return PlaintextWriter.write(doc).getvalue()
 
 
 
