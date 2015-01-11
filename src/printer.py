@@ -8,6 +8,9 @@ from pdfminer.converter import TextConverter
 from pdfminer.layout import LAParams
 from pdfminer.pdfpage import PDFPage
 from cStringIO import StringIO
+from pyth.plugins.rtf15.reader import Rtf15Reader
+from pyth.plugins.plaintext.writer import PlaintextWriter
+
 
 def convert_pdf_to_txt(path):
     rsrcmgr = PDFResourceManager()
@@ -46,7 +49,8 @@ def document_to_text(filename, file_path):
         f = open(file_path)
         return f.read()
     elif filename[-4:] == ".rtf":
-        return
+        doc = Rtf15Reader.read(open(file_path))
+        return PlaintextWriter.write(doc).getvalue()
 
 def main(args):
    print document_to_text(args[1],args[2])
