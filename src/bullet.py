@@ -1,21 +1,26 @@
 def analyse(paragraphs):
-    index = 0
-    while index + 1 < len(paragraphs):
-        substr = paragraphs[index][-5:-1]
-        if '-' in substr or '.' not in substr or ',' in substr:
-            inner_index = 0
+    the_same_begin = []
+    same = []
+    chars = []
+    ch = ''
 
-            print repr(paragraphs[index+1]) + '\n'
+    for i, para in enumerate(paragraphs):
+        if ch != para[0]:
+            if same:
+                the_same_begin.append(same)
+                same = []
+            ch = para[0]
+        elif not ch.isalnum() and not ch.isspace():
+            same.append(i-1)
+            same.append(i)
+            chars.append(ch)
 
-            while paragraphs[index + 1][inner_index].isalnum() is False and inner_index < len(paragraphs[index + 1]):
-                inner_index += 1
+    for the_same in reversed(the_same_begin):
+        for s in reversed(the_same):
+            if s - 1 > 0:
+                paragraphs[s-1] += '\n' + paragraphs[s]
+                del paragraphs[s]
 
-            ch = paragraphs[index + 1][inner_index]
+    print the_same_begin
+    print chars
 
-            if ch.islower():
-                paragraphs[index] = paragraphs[index] + '\n<small>' + paragraphs[index + 1] + '</small>'
-                del paragraphs[index + 1]
-            else:
-                index += 1
-        else:
-            index += 1

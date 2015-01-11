@@ -14,21 +14,19 @@ def parse_document(document, l):
 
             while i+1 < (len(document) - 1) and document[i+1] == '\r':
                 i = i + 1
-                # print 'Skiping ' + repr(document[i]) + " " + str(i)
+                # print 'Skiping %s %d' % (repr(document[i]), i)
 
-
+        # print 'State %d %s %s' % (state,end,ch)
         if state == 1:
             if ~ch.isspace():
                 state = 2
                 paragraph_begin = i
-
 
         elif state == 2:
             if end:
                 end = False
                 paragraph_end = i
                 state = 3
-
 
         elif state == 3:
             if end:

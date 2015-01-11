@@ -36,8 +36,8 @@ class Label:
     def write_to_file(self,file_name):
         self.create_labeled()
         f = open(file_name + '_labeled.txt','w')
-        f.write(self.labeled_text)
+        f.write(self.labeled_text.encode('utf8'))
         f.close()
         f = open(file_name + '_unlabeled.txt','w')
-        f.write(self.text)
+        f.write(self.text.encode('utf8'))
         f.close()

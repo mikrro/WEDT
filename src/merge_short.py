@@ -8,9 +8,9 @@ def match_regex(paragraph, short_begins_pattern):
 
     for short in short_begins_pattern:
         if re.match(short, paragraph.lower(), re.I | re.U | re.S):
-            print "<Begin pattern>" + paragraph
+            # print "<Begin pattern>" + paragraph
             return True
-    print "<Not begin pattern>" + paragraph
+    # print "<Not begin pattern>" + paragraph
 
     return False
 

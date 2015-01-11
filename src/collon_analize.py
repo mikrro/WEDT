@@ -16,7 +16,7 @@ def analyse(paragraphs):
 
             if not ch.isupper():
                 found_colon = True
-                paragraphs[index] = paragraphs[index] +  paragraphs[index + 1]
+                paragraphs[index] += '\n' + paragraphs[index + 1]
                 # paragraphs[index] = paragraphs[index] + '\n<c>' + paragraphs[index + 1] + '</c>'
                 del paragraphs[index + 1]
 

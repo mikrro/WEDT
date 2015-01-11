@@ -2,10 +2,11 @@ import converter
 import parser
 import label
 import merge_short
-import sys
 import collon_analize
 import small_letter
+import bullet
 import utils
+import sys
 
 
 def main(args):
@@ -16,6 +17,7 @@ def main(args):
     merge_short.merge_shorter_than(labeled.paragraph_list, labeled.find_max_line_width()-threshold)
     collon_analize.analyse(labeled.paragraph_list)
     small_letter.analyse(labeled.paragraph_list)
+    bullet.analyse(labeled.paragraph_list)
     # labeled.print_list()
     labeled.write_to_file(utils.remove_extension(args[1]))
 

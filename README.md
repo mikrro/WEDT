@@ -20,4 +20,6 @@ Konwersja plików do plain text przy użyciu modułów/programów:
 
 [TASK] Połączenie paragrafów kończących się ',', '-' lub bez kropki z paragrafami zaczynającymi się małą literą.
 
+[TASK] Połączenie następujących po sobie paragrafów zaczynających się tym samym znakiem niealfanumerycznym
+
 [TASK] Usunięcie nagłówków na początku stron.
