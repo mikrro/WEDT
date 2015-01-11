@@ -33,11 +33,11 @@ class Label:
     def print_labeled(self):
         print repr(self.labeled_text)
 
-    def write_to_file(self):
+    def write_to_file(self,file_name):
         self.create_labeled()
-        f = open('../samples/labeled.txt','w')
+        f = open(file_name + '_labeled.txt','w')
         f.write(self.labeled_text)
         f.close()
-        f = open('../samples/unlabeled.txt','w')
+        f = open(file_name + '_unlabeled.txt','w')
         f.write(self.text)
         f.close()

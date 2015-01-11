@@ -2,21 +2,25 @@ import re
 
 
 def match_regex(paragraph, short_begins_pattern):
+
+    if paragraph.isupper:
+        return True
+
     for short in short_begins_pattern:
-        if re.match(short, paragraph, re.I | re.U | re.S):
-            # print "<Begin pattern>" + paragraph
+        if re.match(short, paragraph.lower(), re.I | re.U | re.S):
+            print "<Begin pattern>" + paragraph
             return True
-    # print "<Not begin pattern>" + paragraph
+    print "<Not begin pattern>" + paragraph
+
     return False
 
 
 def merge_shorter_than(paragraphs, min_size):
-    short_begins_pattern = ['.*rozdzia.*', '.*spis tre.*',
-                            '.*bibliografi.*', '.*dodat.*',
-                            '.*podsumowanie.*','.*wst.p.*',
-                            '.*podzi.kowania.*',
-                            '.*table of contents.*', '.*chapter.*',
-                            '.*appendix.*']
+    short_begins_pattern =  ['.*rozdzia.*', '.*spis tre.*','.*bibliogra.*']
+    short_begins_pattern += ['.*dodat.*','.*podsumowanie.*','.*wst.p.*']
+    short_begins_pattern += ['.*podzi.kowania.*','.*table of contents.*']
+    short_begins_pattern += ['.*chapter.*','.*appendix.*','.*introduction.*','.*section.*']
+
     index = 1
     while index < len(paragraphs):
         if len(paragraphs[index]) < min_size:

@@ -14,7 +14,7 @@ def parse_document(document, l):
 
             while i+1 < (len(document) - 1) and document[i+1] == '\r':
                 i = i + 1
-                print 'Skiping ' + repr(document[i]) + " " + str(i)
+                # print 'Skiping ' + repr(document[i]) + " " + str(i)
 
 
         if state == 1:

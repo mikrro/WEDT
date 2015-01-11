@@ -12,7 +12,10 @@ Konwersja plików do plain text przy użyciu modułów/programów:
 [TASK] Zgrubny podział tekstu paragrafy. Paragraf kończy się ciągiem znaków "(' ''\t')*\n(' ''\t''\r')*(' ''\t')*\n"
 
 [TASK] Połączenie paragrafów o zbyt małej ilości znaków, krótszej niż połowa lini:
-	a) w górę - gdy nie jest nowym tytułem rozdziału
-	b) w dół - jest nowym tytułem rozdziału
+	a) w dół - jest jednym z nagłówków specjalnych, 
+		 - jest pisany wielkimi literami 
+	b) w gorę - w przeciwnym razie
 
 [TASK] Połączenie paragrafów kończących się dwukropkiem z kolejnymi pragrafami zaczynającymi się małą literą.
+
+[TASK] Połączenie paragrafów kończących się ',', '-' lub bez kropki z paragrafami zaczynającymi się małą literą.
