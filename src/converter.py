@@ -6,6 +6,7 @@ from pdfminer.pdfpage import PDFPage
 from cStringIO import StringIO
 from bs4 import BeautifulSoup
 
+
 def convert_pdf_to_txt(path):
     rsrcmgr = PDFResourceManager()
     retstr = StringIO()
