@@ -45,6 +45,8 @@ def document_to_text(filename, file_path):
     elif filename[-4:] == ".txt":
         f = open(file_path)
         return f.read()
+    elif filename[-4:] == ".rtf":
+        return
 
 def main(args):
    print document_to_text(args[1],args[2])

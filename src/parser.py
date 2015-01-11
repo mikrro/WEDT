@@ -1,10 +1,5 @@
-import label
-
-
-def parse_document(document):
+def parse_document(document, l):
     end = False
-
-    l = label.Label(document)
 
     paragraph_begin = 0
     paragraph_end = len(document) - 1
@@ -49,6 +44,3 @@ def parse_document(document):
     if state == 2 or state == 3:
         l.paragraph(paragraph_begin, paragraph_end)
 
-    l.print_text()
-    l.print_labeled()
-    l.write_to_file()

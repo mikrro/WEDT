@@ -1,0 +1,5 @@
+samples/labeled.txt
+samples/unlabeled.txt
+*/.idea/*
+*.pyc
+

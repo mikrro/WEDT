@@ -1,15 +1,10 @@
-import sys
-import parser
-import PyRTF
-
 from subprocess import Popen, PIPE
-
-#http://stackoverflow.com/questions/5725278/python-help-using-pdfminer-as-a-library
 from pdfminer.pdfinterp import PDFResourceManager, PDFPageInterpreter
 from pdfminer.converter import TextConverter
 from pdfminer.layout import LAParams
 from pdfminer.pdfpage import PDFPage
 from cStringIO import StringIO
+from bs4 import BeautifulSoup
 
 def convert_pdf_to_txt(path):
     rsrcmgr = PDFResourceManager()
@@ -31,25 +26,25 @@ def convert_pdf_to_txt(path):
     retstr.close()
     return str
 
-def document_to_text(filename, file_path):
-    if filename[-4:] == ".doc":
+def document_to_text( file_path):
+    if file_path[-4:] == ".doc":
         cmd = ['antiword', file_path]
         p = Popen(cmd, stdout=PIPE)
         stdout, stderr = p.communicate()
         return stdout.decode('ascii', 'ignore')
-    elif filename[-4:] == ".odt":
+    elif file_path[-4:] == ".odt":
         cmd = ['odt2txt', file_path]
         p = Popen(cmd, stdout=PIPE)
         stdout, stderr = p.communicate()
         return stdout.decode('ascii', 'ignore')
-    elif filename[-4:] == ".pdf":
+    elif file_path[-4:] == ".pdf":
         return convert_pdf_to_txt(file_path)
-    elif filename[-4:] == ".txt":
-	    f = open(file_path)
-	    return f.read()
+    elif file_path[-4:] == ".txt":
+        f = open(file_path)
+        return f.read()
+    elif file_path[-5:] == ".html":
+        f = open(file_path).read()
+        return BeautifulSoup(f).get_text()
 
-def main(args):
-   parser.parse_document(document_to_text(args[1],args[2]))
 
-if __name__ == "__main__":
-    main(sys.argv)
+
