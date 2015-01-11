@@ -7,7 +7,6 @@ import collon_analize
 
 
 def main(args):
-    sys.setrecursionlimit(10000)
     threshold = 10
     document = converter.document_to_text(args[1])
     labeled = label.Label(document)

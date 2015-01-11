@@ -21,7 +21,7 @@ def merge_shorter_than(paragraphs, min_size):
     while index < len(paragraphs):
         if len(paragraphs[index]) < min_size:
             if match_regex(paragraphs[index], short_begins_pattern) and index + 1 < len(paragraphs):
-                paragraphs[index] = paragraphs[index] + paragraphs[index+1]
+                paragraphs[index] = paragraphs[index] + '\n' + paragraphs[index+1]
                 del paragraphs[index+1]
             else:
                 paragraphs[index - 1] = paragraphs[index - 1] + paragraphs[index]
