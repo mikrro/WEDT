@@ -7,7 +7,7 @@ Konwersja plików do plain text przy użyciu modułów/programów:
 	odt - https://github.com/dstosberg/odt2txt/
 	html - http://www.crummy.com/software/BeautifulSoup/
 	doc - http://www.winfield.demon.nl/
-	rtf - 
+	rtf - https://pypi.python.org/pypi/pyth/
 
 [TASK] Zgrubny podział tekstu paragrafy. Paragraf kończy się ciągiem znaków "(' ''\t')*\n(' ''\t''\r')*(' ''\t')*\n"
 
@@ -19,3 +19,5 @@ Konwersja plików do plain text przy użyciu modułów/programów:
 [TASK] Połączenie paragrafów kończących się dwukropkiem z kolejnymi pragrafami zaczynającymi się małą literą.
 
 [TASK] Połączenie paragrafów kończących się ',', '-' lub bez kropki z paragrafami zaczynającymi się małą literą.
+
+[TASK] Usunięcie nagłówków na początku stron.
