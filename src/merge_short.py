@@ -15,7 +15,7 @@ def match_regex(paragraph, short_begins_pattern):
     return False
 
 
-def merge_shorter_than(paragraphs, min_size):
+def analyse(paragraphs, min_size):
     short_begins_pattern =  ['.*rozdzia.*', '.*spis tre.*','.*bibliogra.*']
     short_begins_pattern += ['.*dodat.*','.*podsumowanie.*','.*wst.p.*']
     short_begins_pattern += ['.*podzi.kowania.*','.*table of contents.*']

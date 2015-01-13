@@ -48,7 +48,7 @@ def document_to_text( file_path):
         f = open(file_path)
         return f.read()
     elif file_path[-5:] == ".html":
-        f = open(file_path).read()
+        f = open(file_path).read().decode('utf8')
         print BeautifulSoup(f).get_text()
         return BeautifulSoup(f).get_text()
     elif file_path[-4:] == ".rtf":

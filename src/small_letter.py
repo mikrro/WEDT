@@ -16,7 +16,7 @@ def analyse(paragraphs):
 
             if ch.islower():
                 paragraphs[index] = paragraphs[index] + " " + paragraphs[index + 1]
-                # paragraphs[index] = paragraphs[index] + '\n<small>' + paragraphs[index + 1] + '</small>'
+                # paragraphs[index] = paragraphs[index] + '\n<s>' + paragraphs[index + 1] + '</s>'
                 del paragraphs[index + 1]
             else:
                 index += 1

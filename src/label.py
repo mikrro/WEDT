@@ -33,11 +33,21 @@ class Label:
     def print_labeled(self):
         print repr(self.labeled_text)
 
-    def write_to_file(self,file_name):
+    def write_to_file(self, file_name, html):
         self.create_labeled()
         f = open(file_name + '_labeled.txt','w')
-        f.write(self.labeled_text.encode('utf8'))
+
+        if html:
+            f.write(self.labeled_text.encode('utf8'))
+        else:
+            f.write(self.labeled_text)
         f.close()
+
         f = open(file_name + '_unlabeled.txt','w')
-        f.write(self.text.encode('utf8'))
+
+        if html:
+            f.write(self.text.encode('utf8'))
+        else:
+            f.write(self.text)
+
         f.close()
